@@ -1,5 +1,6 @@
 class Book:
     """ Базовый класс книги. """
+
     def __init__(self, name: str, author: str):
         self._name = name
         self._author = author
@@ -27,6 +28,9 @@ class PaperBook(Book):
     def __str__(self):
         return f"{super().__str__()} ({self.pages} страниц)"
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, pages={self.pages!r})"
+
     @property
     def pages(self):
         return self._pages
@@ -47,6 +51,9 @@ class AudioBook(Book):
 
     def __str__(self):
         return f"{super().__str__()} ({self.duration} мин.)"
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, duration={self.duration!r})"
 
     @property
     def duration(self):
